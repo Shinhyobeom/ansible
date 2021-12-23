@@ -12,7 +12,7 @@
             args:
                     executable: /bin/bash
 
-- name: s3_log_web
+- name: s3_log_was
   hosts: _was
   become: true
   vars_files:
