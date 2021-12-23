@@ -25,6 +25,10 @@
                             echo "nifi started"
                             fi
                     mode: 0755
+          - name: runcheck play
+            shell: /home/ec2-user/runcheck.sh
+            args:
+                    executable: /bin/bash
 - name: runcheck tomcat
   hosts: _was
   become: true
