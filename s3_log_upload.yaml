@@ -9,6 +9,8 @@
   tasks:
           - name: web access log s3
             shell: sudo cp -r /var/log/httpd/access_log /home/ec2-user/s3bucket/web_log/accesslog$(date '+-%y-%m-%d.log')
+            args:
+                    executable: /bin/bash
           - name: web error log s3
             shell: sudo cp -r /var/log/httpd/error_log /home/ec2-user/s3bucket/web_log/errorlog$(date '+-%y-%m-%d.log')
             args:
