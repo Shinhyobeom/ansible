@@ -41,12 +41,12 @@
           - name: change conf properties
             lineinfile:
                     dest: /usr/share/tomcat/conf/redis-data-cache.properties
-                    regexp: redis.hosts
+                    regexp: redis.hostsa
                     line: redis.hosts={{ hostvars.localhost.redis.elasticache_clusters[0].cache_nodes[0].endpoint.address }}:6379
           - name: change conf web.xml
             replace:
                     dest: /usr/share/tomcat/conf/web.xml
-                    regexp: <session-timeout>.*</session-timeout>
+                    regexp: <session-timeout>*</session-timeout>
                     replace: <session-timeout>60</session-timeout>
           - name: change conf context.xml
             blockinfile:
