@@ -41,7 +41,7 @@
           - name: change conf properties
             lineinfile:
                     dest: /usr/share/tomcat/conf/redis-data-cache.properties
-                    regexp: redis.hostsa
+                    regexp: redis.hosts=127.0.0.1:6379
                     line: redis.hosts={{ hostvars.localhost.redis.elasticache_clusters[0].cache_nodes[0].endpoint.address }}:6379
           - name: change conf web.xml
             replace:
