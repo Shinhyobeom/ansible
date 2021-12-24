@@ -9,7 +9,7 @@
                   name: '{{ project_name }}-redis'
             register: redis
 - name: redis connect
-  hosts: _was
+  hosts: _wafo_was
   become: true
   gather_facts: false
   vars_files:
