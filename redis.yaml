@@ -46,7 +46,7 @@
           - name: change conf web.xml
             replace:
                     dest: /usr/share/tomcat/conf/web.xml
-                    regexp: <session-timeout>*</session-timeout>
+                    regexp: <session-timeout>30</session-timeout>
                     replace: <session-timeout>60</session-timeout>
           - name: change conf context.xml
             blockinfile:
