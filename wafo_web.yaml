@@ -1,0 +1,19 @@
+---
+- name: wafo_web
+  hosts: _web
+  vars_files:
+        - variable.yaml
+  tasks:
+          - name: clone
+            shell: git clone https://github.com/Shinhyobeom/web.git /home/ec2-user/web
+            args:
+                    executable: /bin/bash
+          - name: cp website
+            shell: sudo cp /home/ec2-user/web/* /var/www/html/*
+            args:
+                    executable: /bin/bash
+
+          - name: restart
+            systemd:
+                    name: httpd
+                    state: restarted
