@@ -21,7 +21,7 @@
                             systemctl start httpd
                             echo `date` restarted httpd >> /home/ec2-user/httpd_runcheck.log
 
-                            aws s3 cp /home/ec2-user/httpd_runcheck.log s3://{{ project_name }}-log-bucket0815/ec2_log/
+                            aws s3 cp /home/ec2-user/httpd_runcheck.log s3://{{ bucket_name }}/ec2_log/
                             echo "nifi started"
                             fi
                     mode: 0755
@@ -51,7 +51,7 @@
                             systemctl start tomcat
                             echo `date` restarted tomcat >> /home/ec2-user/tomcat_runcheck.log
 
-                            aws s3 cp /home/ec2-user/tomcat_runcheck.log s3://{{ project_name }}-log-bucket0815/ec2_log/
+                            aws s3 cp /home/ec2-user/tomcat_runcheck.log s3://{{ bucket_name }}/ec2_log/
                             echo "nifi started"
                             fi
                     mode: 0755
