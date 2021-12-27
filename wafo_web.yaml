@@ -1,4 +1,3 @@
-
 ---
 - name: wafo_web
   hosts: _web
@@ -9,6 +8,14 @@
             shell: sudo rm -rf /home/ec2-user/web
             args:
                     executable: /bin/bash
+          - name: rm html
+            shell: sudo rm -rf /var/www/html/*
+            args:
+                    executable: /bin/bash
+          - name: health
+            shell: echo 'hello~' > /var/www/html/health.html
+            args:
+                    executable: /bin/bash
           - name: clone
             shell: git clone https://github.com/Shinhyobeom/web.git /home/ec2-user/web
             args:
@@ -17,8 +24,7 @@
             shell: sudo cp -rf /home/ec2-user/web/* /var/www/html/
             args:
                     executable: /bin/bash
-
           - name: restart
             systemd:
                     name: httpd
-                    state: restarted            
+                    state: restarted
